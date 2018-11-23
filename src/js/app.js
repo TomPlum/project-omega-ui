@@ -5,14 +5,24 @@ const ReactDOM = require('react-dom');
 const client = require('./client');
 
 class App extends React.Component {
-
-	constructor(props) {
-		super(props);
-		this.state = {employees: []};
-	}
-
 	componentDidMount() {
+	    this.login();
 	}
+
+	login() {
+	    const self = this;
+	    $.ajax({
+            url: "http://localhost:8080/api/login"
+        }).then(response => {
+            self.setState({
+                loginResponse: response
+            });
+        });
+    }
+
+    getInitialState() {
+	    return {loggedIn: false}
+    }
 
 	render() {
 
