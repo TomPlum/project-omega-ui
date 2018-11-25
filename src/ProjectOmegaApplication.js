@@ -1,20 +1,15 @@
 import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import LoginViaSteamButton from "./components/LoginViaSteamButton";
 
-class App extends Component {
+class ProjectOmegaApplication extends Component {
 
     state = {};
 
     componentDidMount() {
-       fetch('/api');
-    }
 
-    login = () => {
-      fetch('/api/login').then(url => {
-         this.setState({steamLoginUrl: url});
-      });
-    };
+    }
 
     render() {
         return (
@@ -22,10 +17,11 @@ class App extends Component {
                 <header className="App-header">
                     <img src={logo} className="App-logo" alt="logo"/>
                     <h1 className="App-title">{this.state.message}</h1>
+                    <LoginViaSteamButton/>
                 </header>
             </div>
         );
     }
 }
 
-export default App;
+export default ProjectOmegaApplication;

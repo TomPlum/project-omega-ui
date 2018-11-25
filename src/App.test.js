@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import ProjectOmegaApplication from './ProjectOmegaApplication';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
+  ReactDOM.render(<ProjectOmegaApplication />, div);
   ReactDOM.unmountComponentAtNode(div);
 });
