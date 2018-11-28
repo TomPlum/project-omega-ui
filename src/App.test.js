@@ -7,3 +7,7 @@ it('renders without crashing', () => {
   ReactDOM.render(<ProjectOmegaApplication />, div);
   ReactDOM.unmountComponentAtNode(div);
 });
+
+describe('LoginViaSteamButton', () => {
+
+});

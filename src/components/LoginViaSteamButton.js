@@ -25,6 +25,9 @@ export default class LoginViaSteamButton extends React.Component {
     }
 
     render() {
-        return <a href={this.state.steamRedirectUrl} target='_blank' rel="noopener noreferrer">Login via Steam </a>;
+        return <a href={this.state.steamRedirectUrl} target='_blank' rel="noopener noreferrer">
+            <i className="steam-group-icon"/>
+            <span className="steam-group-label">Login via Steam</span>
+        </a>;
     }
 }
