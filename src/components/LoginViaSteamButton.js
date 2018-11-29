@@ -7,11 +7,12 @@ export default class LoginViaSteamButton extends React.Component {
 
     componentDidMount() {
         fetch('http://localhost:8080/api/steam/login', {method: 'get'})
+        .then(response => response.json())
         .then(response => {
             console.log(response);
-            if (!response.ok) throw Error(response.statusText);
+            if (!response.valid) throw Error(response.statusText);
             this._asyncRequest = null;
-            this.setState({steamRedirectUrl: response.url.toString()});
+            this.setState({steamRedirectUrl: response.value.toString()});
         })
         .catch(error => {
             console.log(error);
@@ -25,7 +26,7 @@ export default class LoginViaSteamButton extends React.Component {
     }
 
     render() {
-        return <a href={this.state.steamRedirectUrl} target='_blank' rel="noopener noreferrer">
+        return <a href={this.state.steamRedirectUrl} target='_blank' rel="noopener noreferrer" className="steam-group-button">
             <i className="steam-group-icon"/>
             <span className="steam-group-label">Login via Steam</span>
         </a>;
